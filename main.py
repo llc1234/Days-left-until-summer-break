@@ -8,7 +8,6 @@ from datetime import datetime
 
 def get_days():
     current_date = datetime.now()
-
     target_date = datetime(2024, 6, 1)
 
     days_until_target_date = (target_date - current_date).days
@@ -35,8 +34,12 @@ def display_days(display_days):
 
     root.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
 
-    tkinter.Label(root, text=f"days: {display_days}", font=('Times 25')).place(x=100, y=30)
+    tkinter.Label(root, text=f"days: {display_days}", font=('Times 25')).place(x=100, y=15)
     tkinter.ttk.Button(root, text="  ok  ", command=lambda: exit_button(root)).place(x=260, y=70)
+
+    progressbar = tkinter.ttk.Progressbar(root)
+    progressbar.place(x=5, y=75, width=200)
+    progressbar.step(100 - ((display_days / 365) * 100))
 
     root.mainloop()
 
