@@ -54,7 +54,7 @@ def main():
 
         day_2 = get_days()
 
-        if day_2 > day_1:
+        if day_2 != day_1:
             day_1 = day_2
             display_days(day_1)
 
